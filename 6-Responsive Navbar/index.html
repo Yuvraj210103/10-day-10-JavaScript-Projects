@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <label for="">Hello</label>
+           
+            <ul class="nav-menu">
+                
+               <li class="nav-item">
+                <a href="#" class="nav-link">Services</a>
+               </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">Blog</a>
+               </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+               </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+               </li>
+               
+            </ul>
+            <div class="hamburger" onclick="mobileMenu()">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            
+        </nav>
+    </header>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+    
+        function mobileMenu(){
+           
+           navMenu.classList.toggle("active");
+           
+           if(navMenu.className == "nav-menu active")
+           {
+            hamburger.innerHTML =`<i class='bx bx-x'></i>`;
+           }
+           else{
+            hamburger.innerHTML = `<i class='bx bx-menu-alt-right'></i>`;
+           }    
+        }
+
+        let navLink = document.querySelectorAll('.nav-link');
+        
+        navLink.forEach(n => n.addEventListener("click" , closeMenu));
+    
+      function closeMenu(){
+        navMenu.classList.remove("active");
+        if(navMenu.className == "nav-menu active")
+           {
+            hamburger.innerHTML =`<i class='bx bx-x'></i>`;
+           }
+           else{
+            hamburger.innerHTML = `<i class='bx bx-menu-alt-right'></i>`;
+           }  
+      }
+
+        
+
+        
+    </script>
+</body>
+</html>

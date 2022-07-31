@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            place-items: center;
+        }
+        .conatiner{
+            background: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        #btn{
+            padding: 2px 2px; 
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        #hex-code{
+            display: block;
+            padding: 1rem;
+            font-size:1rem;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+    <button id="btn" onclick="genNew()">Change Background Color</button>
+
+    <span id="hex-code"></span>
+    <script>
+        function genNew(){
+            const randomColor = Math.floor(Math.random()*16777219).toString(16);
+            document.body.style.backgroundColor = '#' + randomColor;
+            document.getElementById('hex-code').innerHTML = '#' + randomColor;
+        }
+
+        genNew();
+    </script>
+</div>
+</body>
+</html>

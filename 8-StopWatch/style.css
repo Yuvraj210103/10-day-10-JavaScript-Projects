@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;    
+}
+body{
+    display: grid;
+    place-content: center;
+}
+.container{
+    margin-top:170px;
+    text-align: center;
+    background-color: rgb(253, 253, 86);
+    padding: 20px;
+    border-radius: 20px;
+    
+    
+}
+.container p{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgb(39, 59, 238);
+    font-weight:500;
+    
+}
+.btn button{
+    padding: 5px 6px;
+    width: 50px;
+    margin: 0 8px;
+    background-color: rgb(39, 59, 238);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.btn button:hover{
+    opacity: 0.9;
+}
+@media all and (max-width:600px){
+    .container p{
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: rgb(39, 59, 238);
+        font-weight:300;
+        
+    }   
+}
