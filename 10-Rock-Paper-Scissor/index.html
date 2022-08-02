@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissor</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        .font-size {
+            font-size: 1.2rem;
+        }
+
+        button {
+            width: 5rem;
+            padding: 4px 0;
+            margin: 5px 0;
+            background-color: antiquewhite;
+            border-radius: 5px;
+            border: 0.3px solid;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        button:hover{
+            color: white;
+            background-color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="font-size">Rock, Paper, Scissors</h1>
+    <p class="font-size">Select either rock,paper, or scissor and see if you can beat the computer!</p>
+
+    <p class="font-size"><strong>Remember:</strong>"Rock breaks scissor, Scissors cuts paper, paper covers rock."</p>
+
+
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+
+    <div class="score">
+
+    </div>
+
+    <div class="message">
+
+    </div>
+
+    <script>
+
+        const message = document.querySelector('.message');
+        const score = document.querySelector('.score');
+        const buttons = document.querySelectorAll('button');
+        const winnerScores = [0, 0];
+
+        buttons.forEach(e => e.addEventListener("click", playGame));
+
+        function playGame(e) {
+            let playerSelection = e.target.innerText;
+            // console.log(playerSelection);
+            let computerSelection = Math.random();
+            if (computerSelection < .34) {
+                computerSelection = "Rock";
+            }
+            else if (computerSelection <= .67) {
+                computerSelection = "Paper";
+            }
+            else {
+                computerSelection = "Scissor";
+            }
+            // console.log(computerSelection);
+
+            let result = checkWinner(playerSelection, computerSelection);
+
+            if (result === 'Player') {
+                result += 'wins!';
+                //update the score
+                winnerScores[0]++;
+            }
+            if (result === 'Computer') {
+                result += 'wins!';
+                winnerScores[1]++;
+            }
+            if (result === 'Draw') {
+                result += '.It\'s a tie!'
+            }
+            score.innerHTML = 'Player:[' + winnerScores[0] + '] Computer :[' + winnerScores[1] + ']';
+
+            messenger('Player: <strong>' + playerSelection + '</strong> Computer : <strong>' + computerSelection + '</strong><br>' + result);
+        }
+        function messenger(slectionMessage) {
+            message.innerHTML = slectionMessage;
+        }
+        function checkWinner(player, computer) {
+            if (player === computer) {
+                return 'Draw';
+            }
+            if (player === 'Rock') {
+                if (computer === 'Paper') {
+                    return 'Computer';
+                } else {
+                    return 'Player';
+                }
+            }
+            if (player === 'Paper') {
+                if (computer === 'Scissors') {
+                    return 'Computer';
+                } else {
+                    return 'Player';
+                }
+            }
+            if (player === 'Scissors') {
+                if (computer === 'Rock') {
+                    return 'Computer';
+                } else {
+                    return 'Player';
+                }
+            }
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>
